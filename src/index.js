@@ -1,33 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class Toggle extends React.Component {
-  state = {
-    on: false,
-  };
-
-  handleToggle = () => this.setState(prevState => ({ on: !prevState.on }));
-
-  render() {
-    return this.props.render({
-      on: this.state.on,
-      toggle: this.handleToggle,
-    });
-  }
-}
-
-const Switch = () => (
-  <Toggle
-    render={({ on, toggle }) => (
+const Switch = () => {
+  const [on, setOn] = React.useState(false);
+  return (
+    <div>
+      {on ? 'On' : 'Off'}
       <div>
-        {on ? 'On' : 'Off'}
-        <div>
-          <button onClick={toggle}>Toggle</button>
-        </div>
+        <button onClick={() => setOn(prevOn => !prevOn)}>Toggle</button>
       </div>
-    )}
-  />
-);
+    </div>
+  );
+};
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(<Switch />, rootElement);
