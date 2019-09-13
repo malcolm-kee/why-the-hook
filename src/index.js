@@ -20,7 +20,7 @@ import createReactClass from 'create-react-class';
 //     );
 //   }
 // }
-const Switch = createReactClass({
+const ToggleMixin = {
   getInitialState: function() {
     return {
       on: false,
@@ -29,6 +29,10 @@ const Switch = createReactClass({
   handleToggle: function() {
     this.setState(prevState => ({ on: !prevState.on }));
   },
+};
+
+const Switch = createReactClass({
+  mixins: [ToggleMixin],
   render: function() {
     return (
       <div>
