@@ -1,13 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const Switch = () => {
+const useToggle = () => {
   const [on, setOn] = React.useState(false);
+
+  const toggle = () => setOn(prevOn => !prevOn);
+
+  return [on, toggle];
+};
+
+const Switch = () => {
+  const [on, toggle] = useToggle();
   return (
     <div>
       {on ? 'On' : 'Off'}
       <div>
-        <button onClick={() => setOn(prevOn => !prevOn)}>Toggle</button>
+        <button onClick={toggle}>Toggle</button>
       </div>
     </div>
   );
