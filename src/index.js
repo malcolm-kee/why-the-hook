@@ -1,25 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+// import createClass from 'create-react-class';
 
-const useToggle = () => {
-  const [on, setOn] = React.useState(false);
-
-  const toggle = () => setOn(prevOn => !prevOn);
-
-  return [on, toggle];
-};
-
-const Switch = () => {
-  const [on, toggle] = useToggle();
-  return (
-    <div>
-      {on ? 'On' : 'Off'}
-      <div>
-        <button onClick={toggle}>Toggle</button>
-      </div>
-    </div>
-  );
-};
+const App = () => null;
 
 const rootElement = document.getElementById('root');
-ReactDOM.render(<Switch />, rootElement);
+ReactDOM.render(<App />, rootElement);
